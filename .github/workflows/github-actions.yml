@@ -17,7 +17,7 @@ jobs:
       - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_ID }}
           REMOTE_HOST: ${{ secrets.DEPLOYMENT_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
           TARGET: ${{ secrets.DEPLOY_DIR }}
@@ -27,7 +27,7 @@ jobs:
         with:
           host: ${{ secrets.DEPLOYMENT_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          key: ${{ secrets.SSH_ID }}
           script: |
             sudo apt-get -y update
             sudo apt-get install -y apache2
